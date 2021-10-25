@@ -33,7 +33,6 @@ var loadTasks = function() {
 
   // loop over object properties
   $.each(tasks, function(list, arr) {
-    console.log(list, arr);
     // then loop over sub-array
     arr.forEach(function(task) {
       createTask(task.text, task.date, list);
@@ -41,9 +40,9 @@ var loadTasks = function() {
   });
 };
 
-var saveTasks = function() {
+function saveTasks() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
-};
+}
 
 var auditTask = function(taskEl) {
 
@@ -277,3 +276,6 @@ $("#remove-tasks").on("click", function() {
 // load tasks for the first time
 loadTasks();
 
+setTimeout(function() {
+  alert("This message happens after 5 seconds!");
+}, 5000);
